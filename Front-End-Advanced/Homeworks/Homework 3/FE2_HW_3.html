@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML5 API & Rounded Corners</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style type="text/css">
+			.container {
+				position: relative;
+			}
+
+			.menu {
+				background-color: #7F7F7F;
+				vertical-align: middle;
+				height: 60px;
+				display: table;
+				width: 100%;
+			}
+
+			.menu div {
+				display: table-cell;
+				height: 80%;
+				vertical-align: middle;
+			}
+
+			.btn {
+				border-top-left-radius: 15px;
+				border-bottom-right-radius: 15px;
+				width: 80px;
+				height: 30px;
+			}
+
+			#map_holder {
+				background-color: #BFBFBF;
+				visibility: hidden;
+				border-bottom-left-radius: 10px;
+				border-bottom-right-radius: 10px;
+			}
+
+			span {
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<p>&nbsp;Домашна върху HTML5 API & Rounded Corners</p>
+
+			<div class="menu">
+				<div>
+					<span>&nbsp;Местоположение:</span>
+					<button class="btn" onclick="getLocation();">Вземи</button>
+					<button class="btn" onclick="saveLocation();">Запази</button>
+					<button class="btn" onclick="loadLocation();">Зареди</button>
+				</div>
+			</div>
+
+			<div id="map_holder">
+
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var latlon;
+
+			function showLocation(position) {
+			  	latlon = position.coords.latitude + "," + position.coords.longitude;
+
+			    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
+			    + latlon + "&zoom=14&size=400x300&sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+			    document.getElementById("map_holder").innerHTML = "<img src='" + img_url + "'>";
+			    document.getElementById("map_holder").style.visibility = "visible";
+			}
+
+			function getLocation() {
+				if (navigator.geolocation)  {
+			   		navigator.geolocation.getCurrentPosition(showLocation);
+			  	} else {
+			    	alert('Your browser does not support Geolocation API');
+			  	}
+			}
+
+			function saveLocation() {
+				if (typeof(Storage) !== "undefined") {
+					localStorage.coordinates = latlon;
+					alert('Saved with success!');
+					console.log(localStorage.coordinates);
+				} else {
+					alert('Your browser does not support Local Storage!');
+				}
+			}
+
+			function loadLocation() {
+				if (typeof(Storage) !== "undefined") {
+					if (localStorage.coordinates) {
+						alert(localStorage.coordinates);
+						var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
+			    		+ localStorage.coordinates + "&zoom=14&size=400x300&sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+			    		document.getElementById("map_holder").innerHTML = "<img src='" + img_url + "'>";
+			    		document.getElementById("map_holder").style.visibility = "visible";
+					} else {
+						alert("There's no position saved!")
+					}
+				} else {
+					alert('Your browser does not support Local Storage!');
+				}
+			}
+		</script>
+	</body>
+</html>

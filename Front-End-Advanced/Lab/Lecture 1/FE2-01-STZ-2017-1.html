@@ -1,0 +1,129 @@
+<!DOCTYPE html>	
+	<html lang="BG">
+		<head>
+			<meta charset="utf-8" />
+			<title>Lesson 1</title>
+			<style type="text/css">
+				header {
+					position: relative;
+				}
+
+				#header_logo {
+					width: 200px;
+				}
+
+				nav {
+					position: relative;
+					display: inline-block;
+					float: right;
+					top: 80px;
+					right: 300px;
+				}
+
+				nav ul li {
+					display: inline-block;
+					margin: 5px;
+					padding: 10px;
+				}
+
+				nav ul li a {
+					text-decoration: none;
+					color: lightblue;
+					font-size: 25px;
+					padding: 5px;
+				}
+
+				nav ul li a:hover {
+					color: cyan;
+					background-color: lightblue;
+					transition: color 0.5s, background-color 0.5s;
+				}
+
+				main h1 {
+					text-align: center;
+				}
+
+				footer {
+					margin-top: 30px;
+				}
+
+				footer a {
+					text-decoration: none;
+					color: black;
+				}
+
+				footer a:hover {
+					text-decoration: underline;
+				}
+
+				footer span {
+					display: inline-block;
+					color: red;
+					font-size: 1em;
+				}
+
+				footer span:hover {
+					font-size: 1.25em;
+					cursor: pointer;
+				}
+			</style>
+		</head>
+
+		<body>
+
+			<header>
+				<img src="https://yt3.ggpht.com/-LoPJf56GCd0/AAAAAAAAAAI/AAAAAAAAAAA/iBPyzwUyE7Q/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="webacademy logo" id="header_logo" />
+
+				<nav>
+					<ul>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+						<li><a href="#">Link 3</a></li>
+						<li><a href="#">Link 4</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<main>
+				<h1>Lecture 1</h1>
+				<p>Акулообразните (Selachimorpha), популярно известни като Акули, са надразред хрущялни риби от подклас Пластинчатохрили (Elasmobranchii). Въпреки това, терминът „акула“ също е бил използван и за изчезналите членове на този подклас извън Selachimorpha, като например тези от родовете Cladoselache и Triodus. В рамките на тази по-широка дефиниция, най-ранните доказателства за съществуването на акули са датирани отпреди около 420 млн. години, т.е. преди времето на динозаврите. Съвременните акулообразни включват около 440 вида, вариращи по размери от сантиметри при карибския вид <mark>Etmopterus perryi</mark>, достигащ максимален размер от 21,2 cm до няколко метра при китовата акула (Rhincodon typus), достигаща до 12 m. Акулообразните обитават всички морета и могат да се срещнат на дълбочини до 2 000 m. По правило не живеят в сладки води. Изключенията от него са много малки като бичата и речните акули, обитаващи както сладки, така и солени води. Акулообразните имат 5 до 7 хрилни отвора. Притежават няколко реда, заменяеми зъби.</p>
+			</main>
+
+			<section>
+				<details open="open">
+					<summary>Sharks</summary>
+					<p>По правило не живеят в сладки води. Изключенията от него са много малки като бичата и речните акули, обитаващи както сладки, така и солени води. Акулообразните имат 5 до 7 хрилни отвора. Притежават няколко реда, заменяеми зъби.</p>
+				</details>
+			</section>
+
+			<section style="background-color: darkblue; clear: both;">
+				<figure>
+					<img src="http://www.sharksavers.org/files/9814/5031/2990/M-OMalley-Great-White-0230.jpg" alt="shark" />
+					<figcaption style="color: white; text-align: center;">Shark</figcaption>
+				</figure>
+			</section>
+
+			<div style="height: 100px;">
+				<section style="width: 50%; float: left; /*display: inline-block;*/">
+					<progress value="22" max="100"></progress>
+					По правило не живеят в сладки води. Изключенията от него са много малки като бичата и речните акули, обитаващи както сладки, така и солени води. Акулообразните имат 5 до 7 хрилни отвора. Притежават няколко реда, заменяеми зъби.
+				</section>
+
+				<aside style="width: 30%; float: right; /*display: inline-block;*/">
+					<details>
+						<summary>Menu 2</summary>
+						<ul>
+							<li><a href="#">Link 1</a></li>
+							<li><a href="#">Link 2</a></li>
+							<li><a href="#">Link 3</a></li>
+						</ul>
+					</details>
+				</aside>
+			</div>
+				
+			<footer>
+				<a href="http://webacademy.bg">WebAcademy</a>
+				<span style="float: right;">Yordan Enev</span>
+			</footer>
+		</body>
+	</html>

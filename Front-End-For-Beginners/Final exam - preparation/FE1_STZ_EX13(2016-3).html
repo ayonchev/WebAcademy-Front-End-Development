@@ -1,0 +1,232 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Lecture_13</title>
+        <style>
+        .container{
+            width: 80%;
+            margin: 5px auto;
+            border: 2px solid greenyellow;
+        }
+    
+        .header{
+            width: 100%;
+            border: 1px solid #000;
+            background-color: greenyellow;
+            text-align: center;
+        }
+    
+        .header a{
+            color: #000;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+    
+        .header a:hover{
+            background-color: darkolivegreen;
+            color:yellow;
+        }
+    
+        .main{
+            width: 95%;
+            margin: 5px auto;
+            border: 2px ridge greenyellow;
+        }
+    
+        .main-header{
+            width: 80%;
+            margin: 5px auto;
+            border: 2px ridge grey;
+        }
+    
+        .quote-container{
+            width: 90%;
+            margin: 5px auto;
+            background-color: greenyellow;
+            text-align: center;
+        }
+    
+        .button-container{
+            text-align: center;
+            margin-bottom: 5px;
+        }
+    
+        .main-content{
+            width: 95%;
+            margin: 5px auto;		
+        }
+    
+        #some-things{
+            text-align: center;
+            padding: 10px 0;
+        }
+    
+        #personal-info{
+            background-color: greenyellow;
+            text-align: center;
+            padding: 10px 0;
+        }
+    
+        input[type=reset]{
+            float: right;
+            clear: both;
+        }
+    
+        img{
+            display: block;
+            background-color: greenyellow;
+            border: 2px dashed #000;
+            margin: 5px auto;
+        }
+    
+        .footer{
+            background-color: greenyellow;
+            border-top: 2px ridge grey;	
+            padding: 2px 20px;	
+        }
+    
+        .footer span:last-child{
+            float: right;
+            clear: both;
+        }
+        </style>
+    
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <a href="#">Home</a>
+                <a href="#">Contacts</a>
+                <a href="#">FAQ</a>
+                <a href="#">For us</a>
+                <a href="#">Exit</a>
+            </div>
+            <div class="main">
+                <div class="main-header">
+                    <div class="quote-container">
+                        <blockquote id="quote"></blockquote>
+                        <span id="author"></span>
+                    </div>
+                    <div class="button-container">
+                        <button type="button" onclick="switchQuote('prev');">&larr;Prev</button>
+                        <button type="button" onclick="insertQuote();">Add</button>
+                        <button type="button" onclick="switchQuote('next');">Next&rarr;</button>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div id="some-things">Some things</div>
+                    <div id="personal-info">Personal Info</div>
+                    <form method="post">
+                        <fieldset>
+                            <legend>Personal info</legend>
+                            <label for="names">Your names*:</label>
+                            <input type="text" name="names" id="names" required="required" placeholder="Enter your name" /><br />
+                            <span>Sex: &nbsp;</span>
+                            <label for="male">Male</label>
+                            <input type="radio" name="sex" id="male" value="male" />
+                            <label for="none">Unspecified</label>
+                            <input type="radio" name="sex" id="none" value="female" />
+                            <label for="female">Female</label>
+                            <input type="radio" name="sex" id="female" /><br />
+                            <label for="birthdate">Birthdate:</label>
+                            <input type="date" name="birthdate" id="birthdate" /><br />	
+                            <span>City of birth:</span>
+                            <select id="cityOfBirth" onchange="checkTown();">
+                                <option value="Plovdiv" selected="selected">Plovdiv</option>
+                                <option value="Other">Other</option>
+                            </select><br />
+                            <span>Languages:</span>
+                            <label for="bulgarian">BG</label>
+                            <input type="checkbox" name="lng[]" id="bulgarian" />
+                            <label for="english">EN</label>
+                            <input type="checkbox" name="lng[]" id="english" />
+                            <label for="hindi">HD</label>
+                            <input type="checkbox" name="lng[]" id="hindi" /><br />
+                            <label for="telephone">Tel:</label>
+                            <input type="tel" name="telephone" id="telephone" />
+                            <textarea cols="100" rows="8" placeholder="Please share something interesting! Let's share the moment."></textarea><br />
+                            <input type="submit" name="submit" value="Sumbit" />
+                            <input type="reset" name="reset" value="Reset" />
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="main-footer">
+                    <img src="http://www.tattoogen.com/tattoo/Shit%20Happens%20trial__/95.75/000000/Believe%20In%20Myself.jpg" width="50%" alt="believe in myself" />
+                </div>
+            </div>
+            <div class="footer">
+                <span>&copy; Yordan Enev</span>
+                <span>Web Academy</span>
+            </div>
+        </div>
+        <script>
+            var quoteArray = [
+            {
+                "Quote": "quote 1",
+                "Author": "author 1"
+            },
+            {
+                "Quote": "quote 2",
+                "Author": "author 2"
+            },
+            {
+                "Quote": "quote 3",
+                "Author": "author 3"
+            }
+            ];
+            var index = 1;
+            var domQuote = document.getElementById("quote");
+            var domAuthor = document.getElementById("author");
+            domQuote.innerHTML = quoteArray[index].Quote;
+            domAuthor.innerHTML = quoteArray[index].Author;
+            function insertQuote(){
+                var quote = prompt("Please enter quote", "Quote");
+                if( quote === null || quote == "" || quote === "Quote"){
+                    alert("No Quote!");
+                    return;
+                }
+                var author = prompt("Quote author", "Author"); 
+                if( author === null || author == "" || author === "Author"){
+                    alert("No Author!");
+                    return;
+                }
+                quoteArray.push(
+                {
+                    "Quote": quote,
+                    "Author": author
+                }
+                    );
+            }
+            function switchQuote(direction){
+                if(direction == "prev"){
+                    if(index > 0){
+                        index--;
+                        domQuote.innerHTML = quoteArray[index].Quote;
+                        domAuthor.innerHTML = quoteArray[index].Author;
+                    }else{
+                        alert("No prev quote");
+                    }				
+                }
+                if(direction == "next"){
+                    if(index < quoteArray.length - 1){
+                        index++;
+                        domQuote.innerHTML = quoteArray[index].Quote;
+                        domAuthor.innerHTML = quoteArray[index].Author;
+                    }else{
+                        alert("No next quote");
+                    }
+                }
+            }
+            function checkTown(){
+                var town = document.getElementById("cityOfBirth");
+                if(town.value == "Other"){
+                    var option = document.createElement("option");
+                    option.innerHTML = prompt("Enter town");
+                    if(option.innerHTML !== null && option.innerHTML !== ""){
+                        town.appendChild(option)
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

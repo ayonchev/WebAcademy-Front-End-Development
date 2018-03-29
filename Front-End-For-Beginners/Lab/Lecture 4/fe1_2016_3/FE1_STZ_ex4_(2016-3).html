@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Lesson4</title>
+	</head>
+	<body>
+		<form method="post" enctype="multipart/form-data" action="http://enevsoft.net/echo.php">
+			<table border="3" cellspacing="2" width="100%">
+				<tr>
+					<td colspan="3">
+						<iframe name="result_frame" width="100%">This browser don't support iframe</iframe>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td>
+									<img src="http://webacademy.bg/wp-content/uploads/2016/09/betta_1@abv.bg_avatar-130x130.jpg" alt="Albena Kanarini photo"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="button" name="browse" value="browse" />
+								</td>
+							</tr>
+							<tr>
+								<td>Birth Date
+									<input type="date" name="rd" /> 
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<textarea name="komentar" placeholder="write comment" rows="5"cols="50">
+									</textarea>
+								</td>
+							</tr>
+						</table>	
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td>Username
+									<input type="text" name="username" required="required" />
+								</td>
+							</tr>
+							<tr>
+								<td>Years
+									<input type="number" max="100" min="1" />
+								</td>
+							</tr>
+							<tr>
+								<td>semeen status
+									<select name="semeen_status">
+										<optgroup label="netradicionni">
+											<option value="razveden">razveden</option>
+											<option value="vdoves/vdovica">vdovec/vdovica</option>
+										</optgroup>
+										<optgroup label="tradicionni">
+											<option value="jenen" selected="selected">jenen</option>
+											<option value="sgoden">sgoden</option>
+										</optgroup>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>Pol
+									<input type="radio" name="Pol" value="Man"checked="checked" />M
+									<input type="radio" name="Pol" value="woman" />W
+									<input type="radio" name="Pol" value="other" />?
+								</td>
+							</tr>
+							<tr>
+								<td>Cvqt na o4ite
+									<input type="color" name="Color" value="#606050" />
+								</td>
+							</tr>
+							<tr>
+								<td>Ryst
+									<input type="range" name="ryst" value="165" max="250" min="50" id="ryst" onChange="PrintRangeValue();" />
+									<span id="RangeValue"></span>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>govorimi ezici
+						<select name="ezici[]" multiple="multiple" size="10">
+							<option value="bg">Български</option>
+							<option value="bg">Български</option>
+							<option value="bg">Български</option>
+							<option value="bg">Български</option>
+							<option value="bg">Български</option>
+							<option value="bg">Български</option>
+							<option value="bg">Български</option>
+							<option value="bg">Български</option>
+							<option value="bg">Български</option>
+							<option value="bg">Български</option>					
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="reset" name="clear" value="clear" />
+					</td>
+					<td></td>
+					<td>
+						<input type="submit" name="submit" value="submit" />
+					</td>
+				</tr>				
+			</table>	
+		</form>
+		<script type="text/javascript">
+			function PrintRangeValue() 
+			{
+				var element = document.getElementById('ryst');
+				var span_label = document.getElementById('RangeValue');
+				span_label.innerHTML = element.value;
+			}
+
+			//PrintRangeValue();
+			setInterval("PrintRangeValue()",200);
+		</script>
+	</body>
+</html>

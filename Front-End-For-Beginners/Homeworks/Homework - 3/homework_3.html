@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>Homework 3</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<table border="0" width="100%">
+			<tr>
+				<td width="28%">
+					<form method="post" action="http://Enevsoft.net/echo.php" name="homework" target="result_frame">
+						<fieldset>
+							<legend>Добавяне на нов въпрос</legend>
+							<table border="1">
+								<tr>
+									<td>
+										Вашият e-mail
+									</td>
+									<td>
+										<input type="text" name="mail" tabindex="3" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Заглавието на въпроса
+									</td>
+									<td>
+										<input type="text" name="about" required="required" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Относно курсове:
+									</td>
+									<td>
+										<!-- Става и по двата начина, но втория ми е по-удобен
+											<input type="checkbox" name="courses[1]" value="1" id="FE1" />
+											<input type="checkbox" name="courses[2]" value="2" id="FE2" />
+											<input type="checkbox" name="courses[3]" value="3" id="PHP" />
+										-->
+
+										<input type="checkbox" name="courses[FE1]" value="1" id="FE1" />
+										<label for="FE1">FE1</label>
+										<input type="checkbox" name="courses[FE2]" value="2" id="FE2" />
+										<label for="FE2">FE2</label>
+										<input type="checkbox" name="courses[PHP]" value="3" id="PHP1" />
+										<label for="PHP1">PHP1</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Искам анонимност?
+									</td>
+									<td>
+										<input type="radio" name="anonymous" value="1" id="yes" />
+										<label for="yes">ДА</label>
+										<input type="radio" name="anonymous" value="0" id="no" />
+										<label for="no">НЕ</label>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<input type="text" readonly="readonly" value="Въпрос" style="width:100%;" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<textarea name="question" required="required" rows="2" style="width:100%;" /></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="reset" value="Изчисти" />
+									</td>
+									<td align="right">
+										<input type="submit" value="Изпрати" />
+									</td>
+								</tr>
+							</table>
+						</fieldset>
+					</form>
+				</td>
+				<td width="72%">
+					<iframe src="" name="result_frame" width="100%" height="100%">This browser does not support iframes</iframe>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

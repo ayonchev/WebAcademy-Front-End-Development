@@ -1,0 +1,88 @@
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lesson9</title>
+		<style>
+			#divResult{
+				border:3px solid maroon;
+				padding:50px;
+			}
+			
+			.c0{
+				background-color:white;
+			}
+
+			.c1{
+				background-color:green;
+			}
+
+			.c2{
+				background-color:red;
+			}
+
+			.flagCell{
+				border:1px solid silver;
+				width:250px;
+				height:50px;
+			}
+
+			.flagTable{
+				border: 2px groove black;
+				background-color: grey;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" onclick="showFlag();" value="Bulgarian flag" />
+		<input type="button" onclick="checkConfirm();" value="Confirm" />
+		<input type="button" onclick="showDate();" value="Show Date" />
+		<input type="button" onclick="randomBorder();" value="Make a cooler border" />
+		<br />
+		<div id="divResult"></div>
+		<script>
+			var divResult = document.getElementById('divResult');
+			var colors= ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 
+			'lime', 'maroon', 'navy', 'olive', 'orange', 'purple', 'red', 
+			'silver', 'teal', 'yellow'];
+			var flag = '';
+			
+			function showFlag()
+			{
+				flag += '<table class="flagTable">'
+				for(var row = 0; row <= 2; row++){
+					flag += '<tr><td class="flagCell c' + (row % 3) + '">&nbsp;</td></tr>';
+				}
+				flag += '</table>';
+				divResult.innerHTML = flag;
+			}
+
+			function checkConfirm() {
+				var userConfirm = confirm("Confirm or cancel");
+				if( userConfirm ){
+					divResult.innerHTML = "Result when you agree";
+					console.log(userConfirm);
+				} else { 
+					divResult.innerHTML = "Result when you cancel"; 
+				}
+    		}
+
+    		function showDate() {
+    			var d = new Date();
+    			var theDate = d.getDate() + '.' + d.getMonth() + '.' + d.getFullYear();
+    			var alertDate = 'The exact date is : ' + theDate;
+    			alert(alertDate);
+    		}
+
+		function getRndInteger(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) ) + min;
+		}
+			
+		function randomBorder(){
+			divResult.style.border = '5px solid '+ colors[getRndInteger(0, colors.length)];
+			console.log(colors.length);
+		}
+		</script>	
+	</body>
+</html>

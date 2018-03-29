@@ -1,0 +1,161 @@
+<html lang="bg">
+	<head>
+		<meta charset="utf-8" />
+		<title>Lecture3</title>
+		<style>
+			#main{
+				width:40%;
+				height: 800px;
+				border:1px solid blue;
+				padding:20px;
+			}
+			#myCanvas{
+				float:right;
+				border:1px solid lightblue;			
+			}
+			input[type=text]{
+				width: 70px;
+				margin-top:20px;
+			}
+			button{
+				width: 100px;
+				height: 30px;
+				background-color: pink;
+				text-align: center;	
+				margin-top: 30px;		
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="600" height="800"></canvas>
+		<div id="main">
+			<h3>What do you want to draw?</h3>
+			<input type="radio" name="draw" id="line" onchange="whatChecked();" />
+			<label for="line">Line</label>
+			<input type="radio" name="draw" id="circle" onchange="whatChecked();" />
+			<label for="circle">Circle</label>
+			<input type="radio" name="draw" id="rectangle" onchange="whatChecked();" />
+			<label for="rectangle">Rectangle</label>
+			<input type="radio" name="draw" id="text" onchange="whatChecked();" />
+			<label for="text">Text</label>
+			<h3>Take some value:</h3>
+			<input type="text" id="x" />
+			<label for="x">X</label>
+			<input type="text" id="y" />
+			<label for="y">Y</label>
+			<input type="text" id="x2" />
+			<label for="x2">X2</label>
+			<input type="text" id="y2" />
+			<label for="y2">Y2</label><br />
+			<input type="text" id="r" />
+			<label for="r">R</label>
+			<input type="text" id="w" />
+			<label for="w">W</label>
+			<input type="text" id="h" />
+			<label for="h">H</label>
+			<input type="text" id="myText" />
+			<label for="myText">Text</label><br />
+			<button type="button" onclick="drawCanvas();">Draw</button>
+			<button type="button" onclick="clearDraw();">Clear</button>
+			<button type="button" onclick="myGradient();">Gradient</button>
+		</div>
+		<script>
+			var canvas = document.getElementById('myCanvas');
+			ctx = canvas.getContext('2d');
+			var line = document.getElementById('line');
+			var circle = document.getElementById('circle');
+			var rectangle = document.getElementById('rectangle');
+			var text = document.getElementById('text');
+			var x = document.getElementById('x');
+			var y = document.getElementById('y');
+			var x2 = document.getElementById('x2');
+			var y2 = document.getElementById('y2');
+			var r = document.getElementById('r');
+			var w = document.getElementById('w');
+			var h = document.getElementById('h');
+			var myText = document.getElementById('myText');
+			
+			function whatChecked(){
+			if(line.checked == true){
+				r.disabled = true;
+				w.disabled = true;
+				h.disabled = true;
+				x2.disabled = false;
+				y2.disabled = false;
+				x.disabled = false;
+				y.disabled = false;
+				myText.disabled = true;
+			}else	if(circle.checked == true){
+				r.disabled = false;
+				x2.disabled = true;
+				y2.disabled = true;
+				w.disabled = true;
+				h.disabled = true;
+				x.disabled = false;
+				y.disabled = false;
+				myText.disabled = true;
+			}	else if(rectangle.checked == true){
+				w.disabled = false;
+				h.disabled = false;
+				r.disabled = true;
+				x2.disabled = true;
+				y2.disabled = true;
+				x.disabled = false;
+				y.disabled = false;
+				myText.disabled = true;
+			}else if (text.checked == true) {
+				r.disabled = true;
+				w.disabled = true;
+				h.disabled = true;
+				x2.disabled = true;
+				y2.disabled = true;
+				myText.disabled = false;
+			}
+			}
+			
+			function drawCanvas () {
+				if (line.checked == true) {
+					drawLine();
+				}else if (circle.checked == true) {
+					drawCircle();
+				}else if (rectangle.checked == true) {
+					drawRect();
+				}else if (text.checked == true) {
+					drawText();
+				}
+			}
+			
+			function clearDraw() {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+			}
+			
+			function drawLine(){
+				ctx.lineTo(x.value, y.value);
+				ctx.moveTo(x2.value, y2.value);
+				ctx.stroke();
+			}
+			
+			function drawCircle() {
+				ctx.beginPath();
+				ctx.arc(x.value, y.value, r.value, 0, 2*Math.PI);
+				ctx.stroke();
+			}
+			
+			function drawRect() {
+				ctx.strokeRect(x.value, y.value, w.value, h.value);
+			}
+			
+			function drawText() {
+				ctx.strokeText(myText.value, x.value, y.value)
+			}
+			
+			function myGradient () {
+				var gradient = ctx.createLinearGradient(0, 0, 170, 0);
+				gradient.addColorStop(0, 'red');
+				gradient.addColorStop(1, 'yellow');
+				ctx.fillStyle = gradient;
+				ctx.fillRect(20,20,150,100);
+			}
+		</script>
+	</body>
+</html>

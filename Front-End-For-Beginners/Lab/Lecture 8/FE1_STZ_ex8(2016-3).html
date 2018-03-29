@@ -1,0 +1,141 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Lesson7</title>
+	<style>
+	html, body {
+		width: 100%;
+		height: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	body {
+		background-image: url('https://s-media-cache-ak0.pinimg.com/564x/e9/9e/28/e99e283647aec1814372b9b2a9f64add.jpg');
+		background-size: cover;
+	}
+
+	a:link {
+		text-decoration: none;
+		color: yellow;
+	}
+
+	a:visited {
+		text-decoration: none;
+		color: yellow;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: inherit;
+		font-style: italic;
+	}
+
+	a:active {
+		text-decoration: none;
+		color: gray;
+	}
+	
+	.header_img {
+		opacity: 0.15;
+		transition: opacity 1s;
+		height: 50%;
+		width: 100%;
+	}
+
+	.header_img:hover {
+		opacity: 0.5;
+		transition: opacity 1s;
+	}
+
+	.left_list, .right_list {
+		width: 40%;
+		background-color: rgba(255,255,255,0.3);
+		border: 2px solid #999999;
+	}
+
+	.left_list {
+		float: left;	
+	}
+
+	.right_list {
+		float: right;	
+	}
+
+	.left_list ol {
+		list-style-type: armenian;
+		list-style-position: inside;		
+	}
+
+	.right_list ol {
+		list-style-type: lower-greek;
+		list-style-image: url('http://www.burgasescape.bg/elem/bg.png');
+		list-style-position: inside;
+	}
+
+	.right_list ol:hover {
+		list-style-type: lower-greek;
+		list-style-image: url('http://www.dafhotel.com/images/bg.gif');
+		list-style-position: inside;
+	}
+
+	li {
+		margin: 8px 0px;
+		border-bottom: 1px ridge white;
+	}
+
+	li:hover {
+		background-color: white;
+		font-weight: bold;
+	}
+
+	li:nth-of-type(2) {
+		border-bottom: 1px ridge green;
+	}
+
+	li:nth-of-type(2):hover {
+		background-color: green;
+		color: white;
+	}
+
+	li:nth-of-type(3) {
+		border-bottom: 1px ridge red;
+	}
+
+	li:nth-of-type(3):hover {
+		background-color: red;
+		color: yellow;
+	}
+	</style>
+</head>
+<body>
+	<img class="header_img" src="https://uchiteli.bg/uploads/news/54543454_l.png" alt="Evlogi" />
+	<div style="clear:both"></div>	
+	<div class="left_list">
+		<ol>
+			<li>
+				<a href="https://bg.wikipedia.org/wiki/%D0%98%D0%B2%D0%B0%D0%BD_%D0%A0%D0%B8%D0%BB%D1%81%D0%BA%D0%B8" target="_blank">Иван Рилски</a>
+			</li>
+			<li>
+				<a href="https://bg.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D0%B0%D0%BD%D1%82%D0%B8%D0%BD_%D0%9A%D0%BE%D1%81%D1%82%D0%B5%D0%BD%D0%B5%D1%87%D0%BA%D0%B8" target="_blank">Константин Костенечки</a>
+			</li>
+			<li>
+				<a href="https://bg.wikipedia.org/wiki/%D0%93%D1%80%D0%B8%D0%B3%D0%BE%D1%80%D0%B8%D0%B9_%D0%A6%D0%B0%D0%BC%D0%B1%D0%BB%D0%B0%D0%BA" target="_blank">Григорий Цамблак</a>
+			</li>
+		</ol>
+	</div>
+	<div class="right_list">
+		<ol>
+			<li>
+				<a href="https://bg.wikipedia.org/wiki/%D0%98%D0%B2%D0%B0%D0%BD_%D0%A0%D0%B8%D0%BB%D1%81%D0%BA%D0%B8" target="_blank">Иван Рилски</a>
+			</li>
+			<li>
+				<a href="https://bg.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D0%B0%D0%BD%D1%82%D0%B8%D0%BD_%D0%9A%D0%BE%D1%81%D1%82%D0%B5%D0%BD%D0%B5%D1%87%D0%BA%D0%B8" target="_blank">Константин Костенечки</a>
+			</li>
+			<li>
+				<a href="https://bg.wikipedia.org/wiki/%D0%93%D1%80%D0%B8%D0%B3%D0%BE%D1%80%D0%B8%D0%B9_%D0%A6%D0%B0%D0%BC%D0%B1%D0%BB%D0%B0%D0%BA" target="_blank">Григорий Цамблак</a>
+			</li>
+		</ol>
+	</div>
+</body>
+</html>

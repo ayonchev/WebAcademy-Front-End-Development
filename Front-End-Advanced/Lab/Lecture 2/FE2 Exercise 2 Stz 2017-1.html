@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="bg">
+	<head>
+		<meta charset="utf-8" />
+		<title>Lecture2</title>
+	</head>
+	<body>
+		<video id="myVideo" width="400" controls="controls" >
+  			<source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  			Your browser does not support HTML5 video.
+		</video>
+		<span id="videoData"></span>
+		<button onclick="videoControls('Play')">Play</button>
+		<button onclick="videoControls('Pause')">Pause</button>
+		<button onclick="videoControls('Save')">Save</button>
+		<button onclick="videoControls('Load')">Load</button><br />
+		<button onclick="addVideo('add')">Add Video</button><br />
+		<div id="newVideo">	
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/HrzpACjmofo" frameborder="0" allowfullscreen></iframe>	
+		</div>
+		<button onclick="switchVideo('Prev')">Prev</button>
+		<button onclick="switchVideo('Next')">Next</button>
+		<script type="text/javascript" >
+			var myVideo = document.getElementById("myVideo");
+			var myNewVideo = document.getElementById("newVideo");
+			var myVideoState = null;
+			var index = 0;
+			var array = ['https://www.youtube.com/embed/HrzpACjmofo',
+			'https://www.youtube.com/embed/_Yhyp-_hX2s',
+			'https://www.youtube.com/embed/5qm8PH4xAss',
+			'https://www.youtube.com/embed/axpRWY6e7Uo'
+			];
+			function videoControls (params) {
+				if (params === "Play") {
+					myVideo.play();
+				}else if(params === "Pause"){
+					myVideo.pause()			
+				}else if (params === "Save") {
+					myVideoState = myVideo.currentTime;
+					document.getElementById("videoData").innerHTML = myVideoState;
+				}else {
+					myVideo.currentTime = myVideoState;
+					myVideo.play();
+				}
+			}
+			function addVideo(params) {
+			var newSrc = array[index];
+			if(params !== "ext"){
+			newSrc = prompt("Please enter video URL", "https://media09.vbox7.com/s/54/5415a98dedrf750bc9f0.mp4");
+			if(newSrc !== ""){
+				array.push(newSrc);
+			}			
+				}	
+			if(newSrc !== ""){
+			var newVideo = '<iframe width="560" height="315" src="' + newSrc + '" frameborder="0" allowfullscreen></iframe>';
+			myNewVideo.innerHTML = newVideo;
+			}else {
+				alert("No URL!");
+			}				
+			}
+			function switchVideo(params) {
+			
+				if (params === "Prev") {
+					index = index - 1;
+					if(index === -1){
+						index = array.length-1;						
+						}										
+				}else {
+				index = index + 1;
+					if (index >= array.length) {
+						index = 0;
+					}					
+				}
+				addVideo('ext');
+				}
+		</script>
+	</body>
+</html>

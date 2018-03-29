@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<form method="get" target="_blank" action="http://enevsoft.net/echo.php">
+			<table border="1">
+				<tr>
+					<td>
+						<label for="car_brand">Brand</label>
+					</td>
+					<td align="right">
+						<select name="car_brand" id="car_brand">
+							<option value="0">Please select</option>
+							<option value="1">Audi</option>
+							<option value="2">BMW</option>
+							<option value="3">Mercedes</option>
+						</select>
+					</td>
+					<td rowspan="5">
+						<textarea cols="20" rows="10" name="car_description">Primeren text</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<label for="car_county">Country</label>
+					</td>
+					<td align="right">		
+						<select name="car_country[]" id="car_country" multiple="multiple">
+							<optgroup label="Europe">
+								<option value="5" disabled="disabled">Greece</option>
+								<option value="1">Germany</option>
+								<option value="2" selected="selected">Bulgaria</option>
+							</optgroup>
+							<optgroup label="America" disabled="disabled">
+								<option value="3">USA</option>
+								<option value="4">Mexico</option>
+							</optgroup>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">Car Model</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input name="car_model" list="car_model_list" />
+						<datalist id="car_model_list">
+							<option value="A7">Audi</option>
+							<option value="A8"></option>
+							<option value="A9"></option>
+							<option value="A5"></option>
+							<option value="X5">BMW</option>
+							<option value="X6"></option>
+							<option value="X9"></option>
+							<option value="X8"></option>
+						</datalist>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="range" name="car_price" min="1000" value="5000" max="9999" id="car_price"> <!-- onchange="showRangeValue();" -->
+						<span id="car_price_label">N/A</span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="reset" value="clear form" />
+					</td>
+					<td align="right">
+						<button type="submit">Send</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<script>
+			function showRangeValue(){
+				var range_element;
+				var label_element; 
+				
+				range_element = document.getElementById("car_price");
+				label_element = document.getElementById("car_price_label");
+				
+				label_element.innerHTML = range_element.value;
+			}
+			
+			//showRangeValue();
+			setInterval(showRangeValue, 200);
+		</script>
+	</body>
+</html>

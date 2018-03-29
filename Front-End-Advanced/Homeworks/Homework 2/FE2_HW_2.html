@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" />
+		<title>Homework - SVG</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<svg width="180" height="180" id="dice" style="border: 2px solid grey;">
+			<circle r="25" cy="40" cx="30" fill="black" />
+			<circle r="25" cy="40" cx="90" fill="black" />
+			<circle r="25" cy="40" cx="150" fill="black" />
+			<circle r="25" cy="140" cx="30" fill="black" />
+			<circle r="25" cy="140" cx="90" fill="black" />
+			<circle r="25" cy="140" cx="150" fill="black" />
+		</svg>
+
+		<br />
+		
+		<svg width="200" height="200" id="emblem">
+			<circle r="70" fill="grey" cx="80" cy="80" />
+			<circle r="50" fill="white" cx="80" cy="80" />
+			<rect width="150" height="30" fill="grey" x="5" y="65" />
+			<text x="10" y="91" fill="black" style="font-size: 2em; font-family: 'Orbitron'">NISSAN</text>
+			<button onclick="diceDrawing();">draw</button>
+			<script type="text/javascript">
+				var myDice = document.getElementById('dice');
+				
+				var axisX = 30;
+
+				function diceDrawing() {
+					var my_circles = '';
+					for (var i = 1; i <= 6; i++) {
+						if (i > 0 && i <= 3) {
+							my_cirlces += '<circle r="25" cy="30" cx="' + axisX +  '" fill="black" />';
+							axisX += 60;
+						}
+						
+						if (i === 4) {
+							axisX -= 60;
+							my_circles += '<circle r="25" cy="130" cx="' + axisX +  '" fill="black" />';
+							console.log(circles);
+						}
+					}
+					myDice.innerHTML = my_circles;
+				}
+			</script>
+		</svg>
+	</body>
+</html>

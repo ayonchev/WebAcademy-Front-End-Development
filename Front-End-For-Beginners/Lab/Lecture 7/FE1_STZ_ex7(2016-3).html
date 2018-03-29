@@ -1,0 +1,87 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Lesson7</title>
+	<style>
+	html {
+		width: 100%;
+		height: 100%;
+	}
+	.div_box { 
+		width: 100px;
+		height: 100px;
+		background-color: pink;
+		border: 1px solid green;
+		position: absolute;
+		z-index: 10;
+	}
+	#box1 {
+		top: 0; 
+		left: 0;
+	}
+	#box2 {
+		top: 0; 
+		right: 0;
+	}
+	#box3 {
+		bottom: 0; 
+		left: 0;
+	}
+	#box4 {
+		bottom: 0; 
+		right: 0;
+	}
+	.lion {
+		position: absolute;
+		top: 100px;
+		left: 200px;
+		background-color: yellow;
+	}
+	#bt {
+		position: relative;
+		top: -100px;
+		left: -150px;
+		background-color: transparent;
+		width: 100px;
+		height: 50px;
+	}
+	#main {
+		position: fixed;
+		top: 50px;
+		left: 50px;
+		bottom: 50px;
+		right: 50px;
+		background-color: green;
+	}
+	.lnk {
+		font-size: 24px;
+		text-shadow:1px 1px 2px green,-2px -5px 5px red;
+		text-decoration: overline;
+	}
+	.lnk:hover { 
+		background-color: red;
+		color: white;
+		text-transform: capitalize;
+		font-variant: small-caps;
+	}
+	</style>
+</head>
+<body>
+	<div class="div_box" id="box1"></div>
+	<div class="div_box" id="box2"></div>
+	<div class="div_box" id="box3"></div>
+	<div class="div_box" id="box4"></div>
+	<div style="position:fixed;top:0;left:200px;">
+		<a class="lnk" href="#">link</a>
+		<a class="lnk" href="#">link</a>
+		<a class="lnk" href="#">link</a>
+	</div>
+	<div id="main">
+		<iframe src="http://webacademy.bg" width="100%" height="100%"></iframe>
+	</div>
+	<div class="lion">
+		<img  src="http://i.dailymail.co.uk/i/pix/2015/06/09/16/03BB5E5A0000044D-3117010-image-a-25_1433862086692.jpg" alt="lion" width="600" />
+		<button id="bt" type="button">Click me</button>
+	</div>
+</body>
+</html>

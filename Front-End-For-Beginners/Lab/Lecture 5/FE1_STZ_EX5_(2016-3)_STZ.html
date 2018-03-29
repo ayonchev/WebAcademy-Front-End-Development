@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>car</title>
+	</head>
+	<body>
+		<table width="100%" height="100%" border="2" >
+			<tr>
+				<td>
+					<iframe name="result" width="100%">this browser do not support iframe</iframe>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<form target="result" method="get" name="car" action="http://www.enevsoft.net/echo.php">
+						<fieldset>
+							<legend>form</legend>
+							<table align="left" border="1" width="50%">
+								<tr>
+									<td>
+										Marka
+										<!--
+											Слагаме първи елемент със стойност празен низ.
+											По този начин ще сработи атрибута required.
+										-->
+										<select required="required" name="marka" id="marka">
+											<option value="">select</option>
+											<option value="bmv">BMV</option>
+											<option value="audi">audi</option>
+											<option value="alfa">alfa </option>
+											<option value="ford" >ford</option>
+											<option value="lada">lada</option>
+											<option value="opel">opel</option>
+										</select>
+										<input type="button" value="+" onclick="addBrand();" />	
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Model
+										<input required="required" list="model" name="model" />
+										<datalist id="model">
+											<option value"corsa">corsa</option>
+											<option value="x5">x5</option>
+											<option value="x6">x6</option>
+											<option value="a1">
+											<option value="a2">
+											<option value="a3">
+										</datalist>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Darjava
+										<select name="darjava">
+											<optgroup label="Evropa">
+												<option value="germania">Germania</option>
+												<option value="italia">Italia</option>
+											</optgroup>
+											<optgroup label="Amerika">
+												<option value="USA">USA</option>
+												<option value="Kanada">Kanada</option>
+											</optgroup>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Cvqt
+										<input id="cheren" type="checkbox" name="cvqt[cheren]" value="cheren" /> 
+										<label for="cheren">cheren</label>
+										<input id="bql" type="checkbox" name="cvqt[bql]" checked="checked"value="bql" /> 
+										<label for="bql">bql</label>
+										<input id="siv" type="checkbox" name="cvqt[siv]" value="siv" /> 
+										<label for="siv">siv</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Volan
+										<input value="R" id="r" type="radio" name="volan" />
+										<label for="r">R</label>
+										<input value="L" id="l" type="radio" name="volan" />
+										<label for="l">L</label>	
+									</td>
+								</tr>
+							</table>
+							<img width="600" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQZSXqeOr0gVckxnLyOE5cROas2Z8EilPIXFubL5ZXLlmVe0LUWkw" alt="kola" />
+						</fieldset>
+						<input type="reset" value="reset" />
+						<button style="float:right;" type="submit">send</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+		function addBrand(){
+			var mark_select = document.getElementById("marka");
+			var mark_new = prompt("Add new mark:");
+			mark_select.innerHTML = mark_select.innerHTML + '<option value="'+ mark_new +'">'+ mark_new + '</option>';
+		}
+		</script>
+	</body>	
+</html>

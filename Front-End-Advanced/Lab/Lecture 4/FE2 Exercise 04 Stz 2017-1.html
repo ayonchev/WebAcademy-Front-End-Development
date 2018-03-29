@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="bg">
+	<head>
+		<meta charset="utf-8" />
+		<title>SVG example</title>
+		<style>
+			svg{
+				border: 2px solid pink;			
+			}
+			rect:hover{
+				opacity: 0.6;
+			}
+			button{
+				background-color: pink;			
+			}
+		</style>
+	</head>
+	<body>
+		<svg width="600" height="300" id="mySvg"></svg><br />
+		<button onclick="drawChart()">Draw Chart</button>
+		<button onclick="addChart()">Add new value</button>
+        <button onclick="changeStyle()">Change Style</button>
+		<button onclick="ellipse()">Ellipse</button>
+		<script>
+			var mySvg = document.getElementById('mySvg');
+			var myArr = [25, 120, 40, 170, 98, 190, 30];
+			var line = '<line x1="10" y1="290" x2="590" y2="290" stroke="pink" stroke-width="3" />';
+			var rectangle = null;
+			var color;
+			var rect = null;
+			var myText = '<text x="20" y="80" transform="rotate(-20)" fill="red">Chart</text>';
+			function drawChart() {
+				rectangle = null;
+				for (var i = 0; i <= myArr.length - 1; i++) {
+					if (myArr[i] <= 30 ) {
+						color = 'aqua';
+					}else if (myArr[i] > 30 && myArr[i] <= 80) {
+						color = 'lightblue';
+					}else if (myArr[i] > 80 && myArr[i] <= 150) {
+						color = 'blue';
+					}else {
+						color = 'purple';
+					}
+					rect = '<rect x="' + ((i * 30) + 10) + '" y="' + (289 - myArr[i]) + '" width="20" height="' + myArr[i] + '" fill="' + color + '" onclick="dellElement('+i+')" />';
+					rectangle += rect;
+					if (((i * 30) + 10) > 560) {
+						alert('Nqma mqsto!');
+						return
+					}
+				}
+				 
+				mySvg.innerHTML = rectangle + myText + line; 
+			}
+			
+			function addChart () {
+				var prmt = prompt('Please, add some value:', '98');
+				if (prmt <= 200) {
+					myArr.push(prmt);
+					drawChart();
+				}else {
+					alert('Bad value :)');
+				}
+			}
+			
+			function dellElement(i) {
+				myArr.splice(i,1);
+				drawChart();
+			}
+			
+			function randColor() {
+				var myColor = '#';
+				var symbol = '0123456789ABCDEF';
+				for (var i = 0; i < 6; i++) {
+					myColor += symbol[Math.floor(Math.random() * 16)];
+				}
+				console.log(myColor);
+				return myColor;
+			}
+			
+			function ellipse () {
+				mySvg.innerHTML = '';
+				var myGrad = '<defs><linearGradient id="grd" x1="0%" y1="0%" x2="100%" y2="0%">';
+				for (var i = 0; i < 4; i++) {
+					myGrad += '<stop offset="' + 100/i + '%" style="stop-color:' + randColor() + '; stop-opacity:1;" />';
+				}
+				myGrad += '</linearGradient></defs>';
+				
+				var myEllipse = myGrad + '<ellipse cx="200" cy="150" rx="190" ry="120" fill="url(#grd)" />';
+				mySvg.innerHTML = myEllipse;
+			}
+			
+			function changeStyle () {
+				var points = '';
+				for (var i = 0; i <= myArr.length - 1; i++) {
+					var y = 289 - myArr[i];
+					var x = i * 35 + 10;
+					points += x + ',' + y + ' ';
+				}
+				var polyline = '<polyline points="' + points + '" style="fill:none; stroke:red; stroke-width:2"/>';
+				mySvg.innerHTML = polyline;
+			}
+			
+		</script>
+	</body>
+</html>

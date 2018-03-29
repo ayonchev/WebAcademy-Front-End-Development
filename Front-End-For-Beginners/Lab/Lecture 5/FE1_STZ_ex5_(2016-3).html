@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>Lesson 5</title>
+		<meta charset="UTF-8" />
+	</head>
+
+	<body>
+		<table width="100%" height="100%" border="2">
+			<tr>
+				<td height="18%">
+					<iframe src="" name="result_frame" width="100%">This browser doesn't support iframe tag</iframe>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<form method="get" name="cars" action="http://enevsoft.net/echo.php" target="result_frame">
+						<fieldset>
+							<legend>Advanced forms</legend>
+							<table border="1" width="50%" align="left">
+								<tr>
+									<td>Brand
+										<select name="Cars_brands" required="required" id="brand">
+											<option value="" selected="selected" />
+											<option value="bmw">BMW</option>
+											<option value="mercedes">Mercedes</option>
+											<option value="audi">Audi</option>
+											<option value="lamborghini">Lamborghini</option>
+											<option value="porsche">Porsche</option>
+											<option value="volkswagen">Volkswagen</option>
+										</select>
+										<input type="button" value="+" onClick="addBrand();" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Model
+										<input list="model" name="model" required="required" />
+											<datalist id="model">
+												<option>A7</option>
+												<option>S7</option>
+												<option>i8</option>
+												<option>M5</option>
+												<option value="X6" />
+												<option value="aventador">
+												<option value="huracan">
+												<option value="Panamera">
+												<option value="Cayenne Turbo">
+												<option>S600</option>
+												<option>Touareg</option>
+											</datalist>
+									</td>
+								</tr>
+								<tr>
+									<td>Country
+										<select name="country">
+											<optgroup label="Europe">
+												<option>Germany</option>
+												<option>Italy</option>
+												<option>England</option>
+											</optgroup>
+											<optgroup label="America">
+												<option>America</option>
+												<option>Canada</option>
+											</optgroup>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Color
+										<input type="checkbox" name="color[black]" id="black" />
+										<label for="black">Black</label>
+										<input type="checkbox" name="color[green]" id="green" checked="checked" />
+										<label for="green">Green</label>
+										<input type="checkbox" name="color[blue]" id="blue" />
+										<label for="blue">Blue</label>
+									</td>
+								</tr>
+								<tr>
+									<td>Wheel
+										<input type="radio" name="wheel" value="left" selected="selected" id="left" />
+										<label for="left">Left</label>
+										<input type="radio" name="wheel" value="right" id="right" />
+										<label for="right">Right<label>
+									</td>
+								</tr>
+							</table>
+							<img src="http://2017suvsworthwaitingfor.com/wp-content/uploads/2016/02/2017-Audi-RS7-Exterior.jpg" alt="Audi RS7 2016" align="right" width="600" border="2" />
+						</fieldset>
+						<input type="reset" name="reset" value="Reset" />
+						<button type="submit" style="float:right;">Submit</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			function addBrand(){
+				var brand_select = document.getElementById("brand");
+				var brand_new = prompt("Add new brand: ");
+				brand_select.innerHTML = brand_select.innerHTML + '<option value="' + brand_new + ">' + brand_new + '</option>';
+
+			}
+		</script>	
+	</body>
+</html>
+

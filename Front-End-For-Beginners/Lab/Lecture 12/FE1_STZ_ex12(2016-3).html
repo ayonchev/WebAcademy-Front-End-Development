@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Ex12</title>
+	</head>
+	<body>
+		<button type="button" onclick="alert(joinItems(arrItems));">Join</button>
+		<button type="button" onclick="alert(removeItem(arrItems));">Remove</button>
+		<button type="button" onclick="alert(insertItem(arrItems));">Insert</button>
+		<button type="button" onclick="alert(searchItem(arrItems));">Search</button>
+		<script type="text/javascript">
+		// Create new empty array
+		var arrItems = ['item1', 'item2', 'item3']; 
+		
+		function joinItems(inputArray){
+			var inputText = prompt("Enter string");
+			inputArray = inputArray.join(inputText);
+		
+			return inputArray;
+		}
+		function removeItem(inputArray){
+			var inputIndex = prompt("Remove index");
+			if(isNaN(inputIndex)){
+				alert("incorrect");
+			}
+			else {
+				if(inputIndex >= 0 && inputIndex < inputArray.length){
+					inputArray.splice(inputIndex,1);
+				}
+				else{
+					alert("incorrect:No array index");
+				}
+
+				return inputArray;
+			}
+		}
+		function insertItem(inputArray){
+			var insertIndex = prompt("Index");
+			var insertNewItem = prompt("insert new item");
+
+			if(insertNewItem == ''){
+				alert("Incorect data:Blank text");
+			} else {
+				if(isNaN(insertIndex)){
+					alert("incorrect");
+				} else {
+					if(insertIndex >= 0 && insertIndex < inputArray.length){
+						inputArray.splice(insertIndex,0,insertNewItem);
+					}	
+				}	
+			}
+			return inputArray;
+		}
+
+		function convUp(item_el){
+			return item_el.toLowerCase();
+		}
+		function searchItem(inputArray){
+			var searchIt = prompt("Search item");
+			var indexOfSearch = inputArray.map(convUp).indexOf(searchIt.toLowerCase());
+			if(indexOfSearch < 0){
+				indexOfSearch = 'Error missing';
+			}
+			return indexOfSearch;
+		}
+		</script>
+	</body>
+</html>

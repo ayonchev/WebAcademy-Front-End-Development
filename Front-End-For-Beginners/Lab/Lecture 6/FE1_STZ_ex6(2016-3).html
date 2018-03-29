@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lesson 6</title>
+		<style type="text/css">
+			body {
+				background-image: url('http://www.planwallpaper.com/static/images/HD-Wallpapers1_FOSmVKg.jpeg');
+				background-position: center center;
+				background-size: cover;
+			}
+
+			a {
+				border: 2px solid black;
+				padding: 5px;
+				text-decoration: none;
+				background-color: white;
+			}
+
+			/* Селектираме всички хипервръзки, които имат клас active*/
+			a.active {
+				font-style: italic;
+				color: white;
+				background-color: red;
+			}
+
+			#img_star {
+				width: 150px;
+				opacity: 0.25;
+				position: fixed;
+				bottom: 0px;
+				right: 0px;
+			}
+
+			#img_star:hover {
+				opacity: 0.75;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#">Link 1</a>
+		<a href="#" class="active">Link 2</a>
+		<a href="#">Link 3</a>
+		<img src="http://pngimg.com/upload/star_PNG1597.png" alt="star" id="img_star" />
+	</body>
+</html>

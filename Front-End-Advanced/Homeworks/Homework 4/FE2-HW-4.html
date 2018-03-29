@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FE2_HW_4</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<style type="text/css">
+			body {
+				background-image: url('FE2_HW_4-3.jpg');
+				background-size: 10%;
+				background-position: bottom;
+				background-repeat: repeat-x;
+				background-color: #26A9E1;
+				font-family: 'Lobster', cursive;
+			}
+
+			/*NAVIGATION*/
+
+			nav {
+				position: relative;
+				text-align: center;
+				background-color: darkblue;
+				border: 1px solid #CCCCFF;
+				padding-bottom: 5px;
+				border-radius: 2px;
+				border-bottom-right-radius: 17px
+			}
+
+			nav a {
+				display: inline-block;
+				width: 160px;
+				padding: 1px 15px;
+				background-color: #6666FF;
+				color: white;
+				border-radius: 0px 0px 15px 15px;
+				text-decoration: none;
+				font-size: 1.25em;
+				font-weight: normal;
+				margin-right: 2px;
+				border: 1px solid #CCCCFF;
+			}
+
+			nav a:hover {
+				background-color: #4d88ff;
+				font-weight: bold;
+				transition: font-weight 0.4s, background-color 0.4s;
+			}
+
+			nav button {
+				border-radius: 20px;
+				background-color: lightblue;
+				display: inline-block;
+				float: right;
+				top: 10px;
+				position: relative;
+				font-weight: bold;
+			}
+
+			nav #show {
+				display: none;
+			}
+
+			/*MAIN SECTION*/
+
+			main {
+				background-color: rgba(173, 216, 230, 0.9);
+				border: 2px solid darkblue;
+				width: 60%;
+				position: relative;
+				float: left;
+				margin: 3%;
+				border-radius: 30px;
+			}
+
+			main h2 {
+				text-align: center;
+			}
+
+			main #students {
+				width: 55%;
+				height: 200px;
+				margin: 10px 20px;
+			}
+
+			main #students:hover {
+				box-shadow: 5px 5px 5px gray;
+				transition: box-shadow 0.2s;
+			}
+
+			main #logo {
+				margin: 10px;
+				width: 35%;
+				height: 200px;
+			}
+
+			main #logo:hover {
+				box-shadow: 5px 5px 5px gray;
+				transition: box-shadow 0.2s;
+			}
+			
+			main ul {
+				display: block;
+				text-align: center;
+				margin-top: 10%;
+			}
+
+			main ul li {
+				margin-right: -5px;
+				display: inline-block;
+				border: 1px solid gray;
+				height: 30px;
+				background-color: white;
+			}
+
+			main ul li a {
+				padding: 15px;
+				text-decoration: none;
+				color: black;
+				font-size: 1.35em;
+			}
+
+			main ul li:hover {
+				background-color: lightblue;
+				transition: background-color 0.5s;
+			}
+
+			main ul li:nth-child(2) {
+				background-color: blue;
+			}
+
+			main ul li:nth-child(2) a {
+				color: white;
+			}
+
+			main ul li:first-child {
+				border-top-left-radius: 10px;
+				border-bottom-left-radius: 10px;
+			}
+
+			main ul li:last-child {
+				border-top-right-radius: 10px;
+				border-bottom-right-radius: 10px;
+			}
+
+			/*ASIDE*/
+
+			aside {
+				position: relative;
+				float: right;
+				width: 25%;
+				border-radius: 30px;
+				margin: 3% 3% 3% 0;
+				background-color: white;
+				padding: 1%;
+				border: 2px solid silver;
+			}
+
+			aside #labels {
+				display: inline-block;
+				float: left;
+				width: 30%;
+			}
+
+			aside #labels label {
+				display: block;
+			}
+
+			aside #inputs {
+				display: inline-block;
+				float: right;
+				width: 65%;
+			}
+
+			aside #inputs input {
+				display: block;
+				width: 100%;
+				margin-bottom: 2px;
+			}
+
+			aside input[required="required"] {
+				border: 1px solid red;
+			}
+
+			aside select:hover {
+				cursor: not-allowed;
+			}
+
+			aside input[type="file"] {
+				visibility: hidden;
+			}
+
+			aside #inputs button {
+				float: right;
+				margin-top: 10px;
+			}
+
+			/*READ MORE BUTTON*/
+
+			#read_more {
+				display: inline-block;
+				float: left;
+				clear: both;
+				margin: 1.5% 3%;
+				width: 160px;
+				height: 40px;
+				font-family: 'Lobster', cursive;
+				font-size: 1.25em;
+				background-color: lightblue;
+				border: 1px solid blue;
+				color: blue;
+				font-weight: bold;
+				border-radius: 3px;
+			}
+
+			#read_more:hover {
+				cursor: pointer;
+			}
+
+			#arrows {
+				display: none;
+				opacity: 0.3;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="#" class="nav_links">Начало</a>
+			<a href="#" class="nav_links">Галерия</a>
+			<a href="#" class="nav_links">Награди</a>
+			<a href="#" class="nav_links">Участници</a>
+			<a href="#" class="nav_links">За контакти</a>
+			<button type="button" id="hide">&larr;</button>
+			<button type="button" id="show">&rarr;</button>
+		</nav>
+
+		<main>
+			<h2>Галерия</h2>
+			<img src="FE2_HW_4-1.png" alt="web academy students" id="students" />
+			<img src="FE2_HW_4-2.jpg" alt="wa logo" id="logo"  />
+
+			<ul>
+				<li><a href="">	&lt;&lt;</a></li>
+				<li><a href="">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">&gt;&gt;</a></li>
+			</ul>
+		</main>
+
+		<aside>
+			<form method="post">
+				<fieldset>
+					<legend>Форма за участие в конкурса</legend>
+					<div id="labels">
+						<label for="first_name">Първо име</label>
+						<label for="last_name">Фамилия</label>
+						<label for="heading">Заглавие</label>
+						<label for="competition">Конкурс</label>
+						<label for="picture">
+							<img src="FE2_HW_4-4.png" width="85%" />
+						</label>
+					</div>
+
+					<div id="inputs">
+						<input type="text" name="first_name" id="first_name" placeholder="Въведи името си" required="required" />
+						<input type="text" name="last_name" id="last_name" placeholder="Въведи фамилията си" required="required" />
+						<input type="text" name="heading" id="heading" placeholder="Заглавието на снимката" required="required" />
+
+						<select name="competition" disabled="disabled" id="competition">
+							<option value="purva prelest">Първа прелест</option>
+							<option value="posledna prelest">Последна прелест</option>
+						</select>
+						<input type="file" name="picture" id="picture" />
+						*Кликнете на картинката в ляво, за да прикачите файл
+
+						<button type="submit">Изпрати</button>
+					</div>
+				</fieldset>
+			</form>
+		</aside>		
+
+		<button id="read_more"><span id="content">Read more</span> <span id="arrows">&gt;&gt;</span></button>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#hide').click(function(){
+					$('nav').animate({'width': '100px', 'display': 'block', 'height': '29px','border-top-right-radius': '17px'}, 'fast');
+					$('#show').css('display', 'block');
+					$('.nav_links').css({'display': 'none'});
+					$('#hide').css('display', 'none');
+					$('nav').css('border-top-right-radius', '17px')
+				});
+
+				$('#show').click(function(){
+					$('nav').animate({'width': '100%', 'border-top-right-radius': '0px'}, 'fast');
+					$('.nav_links').css('display', 'inline-block');
+					$('#hide').css('display', 'block');
+					$('#show').css('display', 'none');
+				});
+
+				$('#read_more').mouseover(function(){
+					$('#arrows').css('display', 'inline');
+					$('#arrows').animate({'left': '-5px', 'opacity': '1'}, 'fast')
+					$('#content').animate({'left': '-10px'}, 'slow');
+					
+				});
+
+				$('#read_more').mouseout(function(){
+					$('#content').animate({'left': '5px'}, 'slow');
+					$('#arrows').css({'display': 'none', 'opacity': '0.3'});
+				});
+			});
+		</script>
+	</body>
+</html>

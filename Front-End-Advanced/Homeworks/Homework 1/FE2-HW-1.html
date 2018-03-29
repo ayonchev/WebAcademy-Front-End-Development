@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="BG">
+	<head>
+		<title>Homework 1</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style type="text/css">
+			html, body {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			header {
+				border: 3px solid lightblue;
+			}
+
+			nav {
+				position: relative;
+				width: 50%;
+				border: 2px solid black;
+				margin: auto;
+				text-align: center;
+				padding: 10px;
+			}
+
+			nav a img {
+				height: 34px;
+			}
+
+			main {
+				margin: 2px;
+				display: inline-block;
+				position: relative;
+				border: 1px solid red;
+				min-height: 600px;
+				height: 700px;
+				width: 950px;
+			}
+
+			.container {
+				position: relative;
+				float: left;
+			}
+
+			aside {
+				margin-top: 10px;
+			}
+
+			article {
+				display: inline-block;
+				position: relative;
+				height: 580px;
+				width: 29%;
+				float: right;
+			}
+
+			article img {
+				width: 100%;
+				float: right;
+			}
+
+			footer {
+				border: 3px solid lightgreen;
+			}
+
+			footer span:nth-child(1) {
+				float: left;
+			}
+
+			footer span:nth-child(2) {
+				float: right;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header>
+			<nav>
+				<a href="http://webacademy.bg"><img src="wa_logo.png" alt="webacademy logo" /></a>
+				<a href="http://vbox7.com"><img src="vbox7fff.png" alt="webacademy logo" /></a>
+				<a href="http://google.bg"><img src="GoogleHummingbird.jpg" alt="webacademy logo" /></a>
+			</nav>
+		</header>
+
+		<main>
+			<section>
+				<details closed="closed">
+					<summary>Вмъкнете аудио</summary>
+					<audio controls="controls">
+						<source src="Avicii - Levels (mp3cut.net).mp3" type="audio/mpeg" />
+					</audio>
+				</details>
+			</section>
+				
+			<section>
+				<details closed="closed">
+					<summary>Вмъкнете видео</summary>
+					<video controls="controls">
+						<source id="video" src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+					</video> <br />
+				</details>
+			</section>
+
+			<section>
+				<details closed="closed">
+					<summary>Вмъкнете от <mark>YouTube</mark></summary>
+					<div id="my_video">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/HrzpACjmofo" frameborder="0"allowfullscreen></iframe>
+					</div> <br />
+					<button onclick="addVideo();">Add video</button>
+				</details>
+			</section>
+
+			<aside>
+				Прогрес бар
+				<button onclick="substract();">-</button>
+				<span id="percentage"></span>
+				<progress id="progressBar" value="10" max="100"></progress>
+				<button onclick="add();">+</button>
+			</aside>	
+		</main>
+
+		<article>
+			<img src="olives.jpg" alt="football" />
+		</article>
+
+		<footer>&nbsp;
+			<span>&copy; Web Academy</span>
+			<span>2017</span>
+		</footer>
+
+		<script type="text/javascript">
+			var progress = document.getElementById('progressBar');
+			var value_percentage = document.getElementById('percentage');
+			value_percentage.innerHTML = progress.value + "%";
+
+			function substract() {
+				progress.value -= 10;
+				value_percentage.innerHTML = progress.value + "%";
+				console.log(progress.value);
+			};
+
+			function add() {
+				progress.value += 10;
+				value_percentage.innerHTML = progress.value + "%";
+				console.log(progress.value);
+			};
+
+			function addVideo() {
+				var addNewVideo = document.getElementById('my_video');
+				var video_url = prompt('Моля въведете URL-a на видеото');
+
+				if (video_url !== '' & video_url !== null) {
+					var url_length = video_url.length;
+					if (url_length === 43) {
+						video_url = video_url.substring(32, 43);
+					} else if (url_length === 39) {
+						video_url = video_url.substring(28, 39);
+					} else if (url_length === 38) {
+						video_url = video_url.substring(27, 38);
+					}
+
+					addNewVideo.innerHTML = '<iframe width="560" height="315" src="https://youtube.com/embed/' + video_url + '" frameborder="0" allowfullscreen></iframe>';
+				}
+			};
+		</script>
+	</body>
+</html>

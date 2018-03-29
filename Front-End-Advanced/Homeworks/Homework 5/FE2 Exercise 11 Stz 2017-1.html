@@ -1,0 +1,102 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Lecture 11</title>
+		<style>
+			input[type=button]{
+				padding:10px;
+				background-color: lightblue;
+				margin-right: 20px;
+				text-align:center;
+				color:white;
+				}
+			img{border-radius:50%; width:150px; height:150px}
+			div, h1, button{text-align:center}
+			button{margin:auto; display:block}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+    	<h1>Team</h1>
+        <table cellspacing="30" id="users">
+        	
+        </table>
+		<input type="button" value="Add user" onclick="addToArray();"/>
+		<input type="button" value="Save" onclick="saveUsers();"/>
+		<input type="button" value="Load" onclick="loadUsers();"/>
+		
+		<script>
+			var myArray = [
+				["Rumen Radev","Postman", 'https://previews.123rf.com/images/solgas/solgas1303/solgas130300007/18574797-Young-postman-in-a-postman-uniform-with-a-letter-and-bag-Stock-Vector.jpg'],
+				["John Doe","Cleaner", 'https://addons.cdn.mozilla.net/user-media/userpics/0/0/45.png?modified=1447324257']
+			];
+			
+			function addToArray(){
+				var userName = prompt('Name:','Ivan Ivanov');
+				var userWork = prompt('Profession:','Programmer');
+				var userPic = prompt('Picture:','http://www.infragistics.com/community/cfs-filesystemfile.ashx/__key/CommunityServer.Blogs.Components.WeblogFiles/robert_5F00_kim/8512.shutterstock_5F00_162360971.jpg');
+				if(isNaN(userName) && isNaN(userWork) && isNaN(userPic)){
+						myArray.push([userName,userWork,userPic]);
+						renderUsers();
+					}else{
+						alert('Please enter a valid value for a user, profession and picture!');
+					}
+			}
+			
+			function renderUsers() {
+				var tmp = '';
+				var cnt = 0;
+				
+				for(var i = 0; i < myArray.length; i++){
+					if(cnt == 0){
+						tmp += '<tr>';
+					}
+						tmp += '<td>';
+						tmp += '<img alt="userPictures" src="'+myArray[i][2]+'" />';
+						tmp += '<div id="quoteDiv">Name: ' + myArray[i][0] + '</div>';
+						tmp += '<div id="authorDiv">Profession: ' + myArray[i][1] + '</div>';
+						tmp += '<button type="button" onclick="deleteFromArray(' + i + ');">X</button>';
+						tmp += '</td>';
+					if(cnt == 5){
+						tmp += '</tr>';
+						cnt = 0;
+						}else{
+							cnt++;
+						}
+					
+				}
+				
+				if(cnt != 0){
+					tmp += '</tr>';
+					}
+				$('#users').html(tmp);
+				console.log(tmp);
+			}
+			
+			renderUsers();
+			
+			function saveUsers(){
+				if (typeof(Storage) !== "undefined") {
+					localStorage.myUsers = JSON.stringify(myArray);
+				} else {
+					alert("Не можеш да използваш тази функция. Трябва да си обновиш браузъра");
+				}
+			}
+			
+			function loadUsers(){
+				if (typeof(Storage) !== "undefined") {
+					myArray = JSON.parse(localStorage.myUsers);
+					renderUsers();
+				} else {
+					alert("Не можеш да използваш тази функция. Трябва да си обновиш браузъра");
+				}
+			}
+			
+			function deleteFromArray(i){
+				myArray.splice(i,1);
+				renderUsers();
+			}
+		</script>
+	</body>
+</html>

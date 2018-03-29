@@ -1,0 +1,173 @@
+<html>
+
+	<head>
+		<title>CSS Homework</title>
+		<meta charset="utf-8" />
+		<style type="text/css">
+
+			html, body {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			#main {
+				top: 10px;
+				position: relative;
+				width: 80%;
+				border: 1px solid blue;
+				margin: auto;
+				background-image: url('https://parksrecreation.files.wordpress.com/2012/10/i-believe.jpg');
+				background-position: center bottom;
+				background-attachment: scroll;
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+
+			#nested {
+				position: relative;
+				margin: auto;
+				border: 1px solid red;
+				width: 95%;
+				height: 111%;
+			}
+
+			#menu {
+				width: 100%;
+				border: 1px solid black;
+				background-color: #FACEB0;
+				margin-bottom: 30px;
+			}
+
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+			}
+
+			#menu ul li {
+				display: inline;
+			}
+
+			#menu ul li a:hover {
+				color: red;
+				background-color: yellow;
+				border: 2px dashed #00ccff;
+				display: inline;
+			}
+
+			#nested table {
+				caption-side: bottom;
+				width: 90%;
+				margin: auto;
+				empty-cells: show;
+				border-spacing: 5px 15px;
+				border: 2px solid black;
+			}
+
+			#nested table td {
+				border: 1px solid black;
+			}
+
+			#believe {
+				margin: auto;
+				display: block;
+				border: 3px dashed black;
+			}
+
+			#footer {
+				border: 2px solid blue;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main">
+
+			<div id="menu">
+				<ul>
+					<li><a href="#">Link 1</a></li>
+					<li><a href="#">Link 2</a></li>
+					<li><a href="#">Link 3</a></li>
+					<li><a href="#">Link 4</a></li>
+					<li><a href="#">Link 5</a></li>
+				</ul>
+			</div>
+
+			<div id="nested">
+				<table>
+					<caption>Table: Control menu</caption>
+
+					<tr>
+						<td style="background-color: lightblue; border: 0;">
+							<img src="http://www.tattoogen.com/tattoo/Shit%20Happens%20trial__/95.75/000000/Believe%20In%20Myself.jpg" id="believe" alt="Believe in myself" />
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<input type="button" name="collapse" value="Collapse" />
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<input type="button" name="add_item" value="Add List Item" />
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<input type="button" name="check_form" value="Check Form" />
+						</td>
+					</tr>
+				</table>
+
+				<fieldset>
+					<legend>My Account</legend>
+
+					My Name Is
+					<input type="text" name="my_name" /> <br />
+
+					My years
+					<input type="number" name="my_years" />
+
+					My sex
+					<input type="radio" name="sex" value="male" id="male" />
+					<label for="male">Male</label>
+					<input type="radio" name="sex" value="female" id="female" />
+					<label for="female">Female</label>
+
+					I speak: 
+					<input type="checkbox" name="spoken_languages[bg]" value="bg" id="bg" />
+					<label for="bg">Bulgarian</label>
+					<input type="checkbox" name="spoken_languages[en]" value="en" id="en" />
+					<label for="en">English</label>
+
+					<span style="float:right;">
+						I use:
+						<select>
+							<option>Right hand</option>
+							<option>Left hand</option>
+						</select>
+					</span>
+				</fieldset>
+
+				<!-- Не мога да разбера какво точно се изисква за списъците -->
+				<ol style="float:right; list-style-position: inside;" reversed="reversed" type="1" start="3">
+					Unordered list <br />
+					<li>item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ol>
+			</div>
+
+			<div id="footer">
+				<a href="http://enevsoft.net/" target="_blank">Yordan Enev</a>
+				<a href="http:/webacademy.bg/" style="float:right;">WebAcademy</a>
+			</div>
+
+		</div>
+	</body>
+</html>

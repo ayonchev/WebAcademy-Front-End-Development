@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		
+		<form method="post">
+			<fieldset>
+				<legend>bulgarian elections 2020 !!!</legend>
+				<div id="deputati_div"></div>
+				<input type="submit" value="Vote !!!" />
+				<input type="button" value="+" onclick="addDeputat();" />
+			</fieldset>
+		</form>
+		<script>
+			var deputati = [
+					"Cecka",
+					"Bai Mitko",
+					"Generala",
+					"Boko",
+					"Lelia Penka ot sysedniq vhod"
+				];
+			
+			function addDeputat() {
+				var urodname = prompt('enterDeputatName');
+				
+				if(urodname != '' && urodname != null){
+					deputati.push(urodname);
+					showDeputati();
+				}
+				
+			}
+			function showDeputati() {
+				var x = document.getElementById('deputati_div');
+				x.innerHTML = '';
+				
+				for (i=0; i<deputati.length; i++) {
+					
+					x.innerHTML += '<label><input name="my_choice" type="radio" value="'+deputati[i]+'"/>' + deputati[i] + '</label><br />';
+				}
+				
+			}
+			
+			showDeputati();
+		</script>
+	</body>
+</html>

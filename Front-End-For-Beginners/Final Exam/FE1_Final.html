@@ -1,0 +1,200 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Alexander - Final Exam(FE1)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style type="text/css">
+			html {
+				width: 100%;
+				padding: 0;
+				margin: 0;
+			}
+
+			body {
+				width: 100%;
+				background-image: url('bacground.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			.container {
+				width: 90%;
+				margin: auto;
+				background-color: white;
+				opacity: 0.85;
+			}
+
+			.header {
+				width: 100%;
+				padding-top: 0.5%;
+			}
+
+			.nav {
+				width: 100%;
+			}
+
+			.header .nav a {
+				float: right;
+				text-decoration: none;
+				padding: 3px 3% 3px 3px;
+				border: 1px solid gray;
+				background-color: lightblue;
+				font-style: italic;
+				display: block;
+				margin-right: 0.7%;
+			}
+
+			.header .nav a:hover {
+				color: white;
+				background-color: darkblue;
+				font-weight: bold;
+			}
+
+			.header h1, h2{
+				text-align: center;
+				font-style: italic;
+				clear: both;
+				font-family: cursive;
+			}
+
+			.main {
+				width: 100%;
+			}
+
+			.footer {
+				width: 100%;
+				background-image: url('students.jpg') center center;
+			}
+
+			#footer_bkg {
+				display: block;
+				margin: auto;
+				position: relative;
+				text-align: center;
+				z-index: 1;
+			}
+
+			#footer_wa {
+				position: absolute;
+				display: block;
+				margin: auto;
+				text-align: center;
+				left: 590px;
+				bottom: 0px;
+				z-index: 3;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<div class="nav">
+					<a href="#">Link</a>
+					<a href="#">Link</a>
+					<a href="#">Link</a>
+					<a href="#">Link</a>
+				</div>
+
+				<h1>Желаем Ви Късмет!</h1>
+				<h2>(HTML - 100 реда, CSS - 60 реда, JS - 40 реда)</h2>
+			</div>
+
+			<div class="main">
+				<form method="post" action="http://Enevsoft.net/echo.php" name="final_exam" target="_blank" id="final_exam">
+					<fieldset>
+						<legend>Лични данни</legend>
+
+						<table width="100%">
+							<tr>
+								<td width="25%" style="background-image: url('giphy.gif'); background-size: cover; background-position: center center;">
+								</td>
+
+								<td width="50%">
+									<div id="form_sent" style="display:none;">
+										<h1 style="font-size: 48; font-family: 'Consolas'; color:gray; text-align: center;">Благодарим Ви!</h1>
+										<button type="buttton" style="text-align: center; display: block; margin: auto;" onclick="displayChange();">Обратно</button>
+									</div>
+									<div id="form_default">
+										<label for="names">Вашите имена</label>
+										<input type="text" name="names" id="names" required="required" placeholder="Въведете трите си имена" /> <br />
+
+										<span>Пол: &nbsp;</span>
+										<label for="male">Мъж</label>
+										<input type="radio" name="sex" id="male" value="male" />
+										<label for="female">Жена</label>
+										<input type="radio" name="sex" id="female" value="female" />
+										<label for="secret">Тайна</label>
+										<input type="radio" name="sex" id="secret" value="secret" /> <br />
+
+										<label for="birthdate">Рождена дата</label>
+										<input type="date" id="birthdate" name="birthdate" /> <br />
+
+										<span>Роден град:</span>
+										<select id="cityOfBirth">
+											<option selected="selected">Пловдив</option>
+											<option>Sofia</option>
+											<option>Other</option>
+										</select> <br />
+
+										<span id="languages">Говорими езици:&nbsp;
+											<label for="bg">Български</label>
+											<input type="checkbox" name="spoken_languages[]" value="bg" id="bg" />
+											<label for="en">Английски</label>
+											<input type="checkbox" name="spoken_languages[]" value="en" id="en" />
+											<label for="hindi">Хинди</label>
+											<input type="checkbox" name="spoken_languages[]" value="hindi" id="hindi" /> 
+										</span>
+										<button type="button" onclick="addLanguages();">+Добави</button>
+										<br />
+
+										<label for="tel">Телефон за контакт: &nbsp;</label>
+										<input type="tel" name="tel" id="tel" /> <br />
+
+										<textarea cols="120" rows="8" placeholder="Моля, напишете ни нещо интересно. Нека споделим мига!"></textarea> <br />
+
+										<button type="button" name="send" onclick="sendForm();" style="float: right;">Send</button>
+										<input type="reset" name="reset" value="Reset" />
+									</div>
+								</td>
+
+								<td width="25%" style="background-image: url('motivation.jpg'); background-size: cover; background-position: center center;">
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+				</form>
+			</div>
+
+			<div class="footer">
+				<img src="students.jpg" alt="students" width="50%" id="footer_bkg" />
+				<img src="wa_big.jpg" alt="webacademy logo" width="31%" height="20%" id="footer_wa" />
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			function addLanguages() {
+				var input = prompt('Добавете език');
+				if (input != '' && input != null) {
+				document.getElementById('languages').innerHTML += '<label for="' + input + '">' + input + '</label>' + '<input type="checkbox" name="spoken_languages[] value="' + input + '"' + 'id="' + input + '" />';
+				}
+			};
+
+			function sendForm() {
+				var userConfirm = confirm("Данните коректни ли са? Да изпратя ли формата?");
+				if (userConfirm) 
+				{
+					document.getElementById('final_exam').submit();
+					document.getElementById('form_default').style.display = "none";
+					document.getElementById('form_sent').style.display = "block";
+				}
+			};
+
+			function displayChange() {
+				document.getElementById('form_default').style.display = "block";
+				document.getElementById('form_sent').style.display = "none";
+			};
+			
+		</script>
+	</body>
+</html>

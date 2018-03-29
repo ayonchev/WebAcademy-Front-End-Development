@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lesson9</title>
+		<style>
+			#chess_div{
+				border:3px solid maroon;
+				padding:50px;
+			}
+			
+			.c0{
+				background-color:white;
+			}
+
+			.c1{
+				background-color:black;
+			}
+
+			.chess_cell{
+				border:1px solid silver;
+				width:50px;
+				height:50px;
+			}
+
+			.chess_table{
+				border: 5px groove brown;
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" onclick="show_chess();" value="Chess" />
+		<input type="button" onclick="show_array();" value="Show" />
+		<br />
+		<div id="chess_div"></div>
+		<script>
+			function show_chess()
+			{
+				// Step 1: getElementById...
+				var div_chess = document.getElementById('chess_div');
+
+				// Step 2: create new variable and use it to create table :)
+				var tmp_table = '';
+
+				for(var row = 1; row <= 8; row++)
+				{
+					tmp_table += '<tr>';
+
+					for(var col = 1; col <= 8; col++)
+					{
+						tmp_table += '<td class="chess_cell c' + ((row + col) % 2) + '">&nbsp;</td>';
+					}
+
+					tmp_table += '</tr>';
+				}
+
+				tmp_table = '<table class="chess_table">' + tmp_table + '</table>';
+
+				// Step 3: change innerHTML...
+				div_chess.innerHTML = tmp_table;
+			}
+
+			function show_array(){
+				// Create new array with 8 elements. Keys are from 0..7
+				var first_array = [8,67,54,3,2,3,23,2];
+
+				var items_count = first_array.length; // Get Count of array items
+
+				// Show every array item on different row			
+				for(var iterator = 0; iterator < items_count; iterator++){
+					document.write(first_array[iterator] + '<br />');
+					console.log(iterator + ' => ' + first_array[iterator]);
+				}
+			}
+
+			show_array(); // Execute function for first time... All is Ok...
+		</script>	
+	</body>
+</html>
